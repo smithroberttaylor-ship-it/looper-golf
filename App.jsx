@@ -73,57 +73,11 @@ async function saveData(key, value) {
   }
 }
 // ─── Default Data ───
-const DEFAULT_CLUBS = [
-  { id: "d1", name: "Driver", brand: "TaylorMade", model: "Qi10 Max", loft: "10.5°", inBag: true, category: "Woods", estimatedValue: 380 },
-  { id: "w3", name: "3 Wood", brand: "TaylorMade", model: "Qi10", loft: "15°", inBag: true, category: "Woods", estimatedValue: 210 },
-  { id: "w5", name: "5 Wood", brand: "TaylorMade", model: "Qi10", loft: "18°", inBag: false, category: "Woods", estimatedValue: 175 },
-  { id: "h4", name: "4 Hybrid", brand: "Titleist", model: "TSR2", loft: "22°", inBag: true, category: "Hybrids", estimatedValue: 155 },
-  { id: "i5", name: "5 Iron", brand: "Titleist", model: "T200", loft: "25°", inBag: true, category: "Irons", estimatedValue: 120 },
-  { id: "i6", name: "6 Iron", brand: "Titleist", model: "T200", loft: "28°", inBag: true, category: "Irons", estimatedValue: 115 },
-  { id: "i7", name: "7 Iron", brand: "Titleist", model: "T200", loft: "31°", inBag: true, category: "Irons", estimatedValue: 115 },
-  { id: "i8", name: "8 Iron", brand: "Titleist", model: "T200", loft: "35°", inBag: true, category: "Irons", estimatedValue: 110 },
-  { id: "i9", name: "9 Iron", brand: "Titleist", model: "T200", loft: "39°", inBag: true, category: "Irons", estimatedValue: 110 },
-  { id: "pw", name: "PW", brand: "Titleist", model: "Vokey SM10", loft: "46°", inBag: true, category: "Wedges", estimatedValue: 125 },
-  { id: "gw", name: "GW", brand: "Titleist", model: "Vokey SM10", loft: "50°", inBag: true, category: "Wedges", estimatedValue: 120 },
-  { id: "sw", name: "SW", brand: "Titleist", model: "Vokey SM10", loft: "54°", inBag: true, category: "Wedges", estimatedValue: 120 },
-  { id: "lw", name: "LW", brand: "Titleist", model: "Vokey SM10", loft: "58°", inBag: true, category: "Wedges", estimatedValue: 120 },
-  { id: "pt", name: "Putter", brand: "Scotty Cameron", model: "Super Select", loft: "3°", inBag: true, category: "Putter", estimatedValue: 320 },
-];
-const DEFAULT_COURSES = [
-  { id: "c1", name: "Maple Bluff CC", city: "Madison", state: "WI", country: "US", lat: 43.11, lng: -89.36, played: true, rating: 4, wishlist: false, notes: "Home course. Great condition year-round.", lastPlayed: "2026-02-10" },
-  { id: "c2", name: "University Ridge", city: "Madison", state: "WI", country: "US", lat: 43.07, lng: -89.48, played: true, rating: 4, wishlist: false, notes: "Tough track, great practice for tournament play.", lastPlayed: "2026-02-03" },
-  { id: "c3", name: "Hawks Landing", city: "Verona", state: "WI", country: "US", lat: 42.99, lng: -89.55, played: true, rating: 3, wishlist: false, notes: "Good value. Can be soft after rain.", lastPlayed: "2026-01-20" },
-  { id: "c4", name: "Whistling Straits", city: "Kohler", state: "WI", country: "US", lat: 43.85, lng: -87.73, played: false, rating: 0, wishlist: true, rank: 1, notes: "Bucket list — Ryder Cup venue." },
-  { id: "c5", name: "Pebble Beach GL", city: "Pebble Beach", state: "CA", country: "US", lat: 36.57, lng: -121.95, played: false, rating: 0, wishlist: true, rank: 2, notes: "Dream round. Ocean views." },
-  { id: "c6", name: "Pinehurst No. 2", city: "Pinehurst", state: "NC", country: "US", lat: 35.19, lng: -79.47, played: false, rating: 0, wishlist: true, rank: 3, notes: "Classic Donald Ross design." },
-  { id: "c7", name: "St Andrews Old Course", city: "St Andrews", state: "", country: "UK", lat: 56.34, lng: -2.80, played: false, rating: 0, wishlist: true, rank: 4, notes: "The home of golf." },
-];
-const DEFAULT_ROUNDS = [
-  { id: "r1", date: "2026-02-10", course: "Maple Bluff CC", score: 82, par: 72, putts: 32, fairways: "8/14", gir: "9/18", sgTotal: -1.2, sgPutting: 0.3, sgApproach: -0.8, sgOffTee: -0.4, sgAround: -0.3, holes: 18, tees: "Blue", rating: 72.1, slope: 131 },
-  { id: "r2", date: "2026-02-03", course: "University Ridge", score: 85, par: 72, putts: 34, fairways: "7/14", gir: "7/18", sgTotal: -2.8, sgPutting: -0.5, sgApproach: -1.2, sgOffTee: -0.6, sgAround: -0.5, holes: 18, tees: "Blue", rating: 73.4, slope: 138 },
-  { id: "r3", date: "2026-01-28", course: "Maple Bluff CC", score: 79, par: 72, putts: 30, fairways: "10/14", gir: "11/18", sgTotal: 0.8, sgPutting: 1.1, sgApproach: 0.2, sgOffTee: 0.1, sgAround: -0.6, holes: 18, tees: "Blue", rating: 72.1, slope: 131 },
-  { id: "r4", date: "2026-01-20", course: "Hawks Landing", score: 88, par: 72, putts: 35, fairways: "6/14", gir: "6/18", sgTotal: -4.1, sgPutting: -1.0, sgApproach: -1.5, sgOffTee: -1.0, sgAround: -0.6, holes: 18, tees: "White", rating: 71.2, slope: 128 },
-  { id: "r5", date: "2026-01-12", course: "University Ridge", score: 81, par: 72, putts: 31, fairways: "9/14", gir: "10/18", sgTotal: -0.5, sgPutting: 0.5, sgApproach: -0.3, sgOffTee: -0.2, sgAround: -0.5, holes: 18, tees: "Blue", rating: 73.4, slope: 138 },
-];
-const DEFAULT_PRACTICE = [
-  { id: "p1", date: "2026-02-14", type: "Range", duration: 60, focus: "Iron Accuracy", notes: "Worked on 7i alignment. Hitting 65% of targets at 150yds.", ballsHit: 80, rating: 7 },
-  { id: "p2", date: "2026-02-12", type: "Short Game", duration: 45, focus: "Bunker Play", notes: "Sand saves improving. Got up and down 6/10 times.", ballsHit: 40, rating: 6 },
-  { id: "p3", date: "2026-02-10", type: "Putting", duration: 30, focus: "Speed Control", notes: "Lag putting from 30ft. Average proximity 3.2ft.", ballsHit: 0, rating: 8 },
-  { id: "p4", date: "2026-02-08", type: "Range", duration: 75, focus: "Driver", notes: "Testing new swing path. Avg carry 255, dispersion tightened.", ballsHit: 60, rating: 7 },
-  { id: "p5", date: "2026-02-05", type: "Short Game", duration: 40, focus: "Chipping", notes: "Bump and run with 8i around the green. Much better contact.", ballsHit: 35, rating: 8 },
-];
-const DEFAULT_HEALTH = {
-  steps: 8432, restingHR: 62, hrv: 45, sleep: 7.2, activeCalories: 520,
-  weeklyTrend: [
-    { day: "Mon", steps: 9200, sleep: 7.5, hrv: 48 },
-    { day: "Tue", steps: 7800, sleep: 6.8, hrv: 42 },
-    { day: "Wed", steps: 11200, sleep: 7.8, hrv: 50 },
-    { day: "Thu", steps: 6500, sleep: 6.5, hrv: 39 },
-    { day: "Fri", steps: 8900, sleep: 7.0, hrv: 44 },
-    { day: "Sat", steps: 14200, sleep: 7.9, hrv: 52 },
-    { day: "Sun", steps: 8432, sleep: 7.2, hrv: 45 },
-  ],
-};
+const DEFAULT_CLUBS = [];
+const DEFAULT_COURSES = [];
+const DEFAULT_ROUNDS = [];
+const DEFAULT_PRACTICE = [];
+const DEFAULT_HEALTH = { steps: 0, restingHR: 0, hrv: 0, sleep: 0, activeCalories: 0, weeklyTrend: [] };
 // ─── Utility Functions ───
 function calcHandicap(rounds) {
   if (!rounds || rounds.length === 0) return "N/A";
@@ -1581,7 +1535,7 @@ export default function App() {
                 <div style={{ textAlign: "center", padding: "20px 0" }}>
                   <div style={{ width: 72, height: 72, borderRadius: "50%", background: "linear-gradient(135deg, rgba(110,231,183,0.15), rgba(34,197,94,0.08))", border: `2px solid ${T.cardBorder}`, display: "flex", alignItems: "center", justifyContent: "center", margin: "0 auto 16px" }}><Icon name="person" size={32} color={T.accent} /></div>
                   <h3 style={{ fontFamily: "'DM Sans', sans-serif", fontSize: 20, color: T.textPrimary, marginBottom: 6 }}>Sign In to Looper</h3>
-                  <p style={{ fontSize: 13, color: T.textMuted, marginBottom: 24, maxWidth: 360, margin: "0 auto 24px" }}>Sync your data across devices and unlock personalized coaching insights.</p>
+                  <p style={{ fontSize: 13, color: T.textMuted, marginBottom: 24, maxWidth: 360, margin: "0 auto 24px" }}>Sign-in coming soon. Your data is saved locally on this device.</p>
                   <div style={{ display: "flex", flexDirection: "column", gap: 12, maxWidth: 320, margin: "0 auto" }}>
                     <button onClick={() => setUser({ name: "Taylor Smith", email: "smith.robert.taylor@gmail.com", provider: "google", avatar: null, memberSince: new Date().toISOString() })} style={{ display: "flex", alignItems: "center", justifyContent: "center", gap: 10, padding: "12px 20px", borderRadius: 12, border: `1px solid ${T.inputBorder}`, backgroundColor: T.inputBg, color: T.textPrimary, fontSize: 14, fontFamily: "'DM Sans', sans-serif", fontWeight: 600, cursor: "pointer", transition: "all 0.2s" }}>
                       <svg width="18" height="18" viewBox="0 0 48 48"><path fill="#EA4335" d="M24 9.5c3.54 0 6.71 1.22 9.21 3.6l6.85-6.85C35.9 2.38 30.47 0 24 0 14.62 0 6.51 5.38 2.56 13.22l7.98 6.19C12.43 13.72 17.74 9.5 24 9.5z"/><path fill="#4285F4" d="M46.98 24.55c0-1.57-.15-3.09-.38-4.55H24v9.02h12.94c-.58 2.96-2.26 5.48-4.78 7.18l7.73 6c4.51-4.18 7.09-10.36 7.09-17.65z"/><path fill="#FBBC05" d="M10.53 28.59c-.48-1.45-.76-2.99-.76-4.59s.27-3.14.76-4.59l-7.98-6.19C.92 16.46 0 20.12 0 24c0 3.88.92 7.54 2.56 10.78l7.97-6.19z"/><path fill="#34A853" d="M24 48c6.48 0 11.93-2.13 15.89-5.81l-7.73-6c-2.15 1.45-4.92 2.3-8.16 2.3-6.26 0-11.57-4.22-13.47-9.91l-7.98 6.19C6.51 42.62 14.62 48 24 48z"/></svg>
@@ -1621,7 +1575,7 @@ export default function App() {
               </div>
               <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(140px, 1fr))", gap: 14 }}>
                 {[
-                  { label: "Plan", value: "Pro", color: "#6ee7b7", sub: "Unlimited coaching" },
+                  { label: "Plan", value: "Pro", color: "#6ee7b7", sub: "Local storage only" },
                   { label: "Member Since", value: user ? new Date(user.memberSince).toLocaleDateString("en-US", { month: "short", year: "numeric" }) : "—", color: T.textPrimary, sub: user ? "Active" : "Not signed in" },
                   { label: "Rounds Logged", value: rounds.length, color: T.accent, sub: "Total rounds" },
                   { label: "Practice Sessions", value: practice.length, color: T.textPrimary, sub: "Total sessions" },
@@ -1648,8 +1602,8 @@ export default function App() {
                 {[
                   { name: "GHIN", desc: "Official USGA handicap index, round history & score posting", icon: "link", color: "#3b82f6", bgColor: "rgba(59,130,246,0.08)", borderColor: "rgba(59,130,246,0.25)", status: "available", lastSync: null, sessions: 0 },
                   { name: "Arccos", desc: "Automated round capture, GPS tracking & shot detection", icon: "location", color: "#10b981", bgColor: "rgba(16,185,129,0.08)", borderColor: "rgba(16,185,129,0.25)", status: "available", lastSync: null, sessions: 0 },
-                  { name: "Awesome Golf", desc: "Simulator sessions, shot data & virtual rounds", icon: "gamepad", color: "#22c55e", bgColor: "rgba(34,197,94,0.08)", borderColor: "rgba(34,197,94,0.25)", status: "connected", lastSync: "2 hours ago", sessions: 12 },
-                  { name: "TrackMan", desc: "Launch monitor data, club speed, spin & carry", icon: "chart", color: "#3b82f6", bgColor: "rgba(59,130,246,0.08)", borderColor: "rgba(59,130,246,0.25)", status: "connected", lastSync: "1 day ago", sessions: 8 },
+                  { name: "Awesome Golf", desc: "Simulator sessions, shot data & virtual rounds", icon: "gamepad", color: "#22c55e", bgColor: "rgba(34,197,94,0.08)", borderColor: "rgba(34,197,94,0.25)", status: "available", lastSync: "2 hours ago", sessions: 12 },
+                  { name: "TrackMan", desc: "Launch monitor data, club speed, spin & carry", icon: "chart", color: "#3b82f6", bgColor: "rgba(59,130,246,0.08)", borderColor: "rgba(59,130,246,0.25)", status: "available", lastSync: "1 day ago", sessions: 8 },
                   { name: "Toptracer", desc: "Range sessions, ball flight & distance tracking", icon: "target", color: "#f59e0b", bgColor: "rgba(245,158,11,0.08)", borderColor: "rgba(245,158,11,0.25)", status: "available", lastSync: null, sessions: 0 },
                   { name: "Full Swing", desc: "Simulator play, shot shape & performance data", icon: "golf", color: "#a855f7", bgColor: "rgba(168,85,247,0.08)", borderColor: "rgba(168,85,247,0.25)", status: "available", lastSync: null, sessions: 0 },
                   { name: "Garmin Golf", desc: "GPS watch data, approach distances & club tracking", icon: "watch", color: "#06b6d4", bgColor: "rgba(6,182,212,0.08)", borderColor: "rgba(6,182,212,0.25)", status: "available", lastSync: null, sessions: 0 },
